@@ -1,13 +1,13 @@
-function Letter(charString, letterGuess){
+function Letter(charString, letterVerify){
     this.charString=charString;
-    this.letterGuess=letterGuess|| false;
+    this.letterVerify=letterVerify|| false;
     }
     Letter.prototype.letterGuess=()=>{
-        console.log("wors");
     return true ? this.charString: '_';
     }
     Letter.prototype.letterCheck=(character)=>{
     character===this.charString ? this.letterGuess=true: this.letterGuess=false;
     }
 
-prototype.letterGuess();
+
+
