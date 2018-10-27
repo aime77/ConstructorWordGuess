@@ -1,20 +1,21 @@
 const Word= require("./Word.js");
+//const require=require("require");
+const inquirer=require("inquirer");
 
 const game={
 arrWords:['quark','electron','proton','neurtrino','Higgs boson','muon','positro','pion'],
 score:0,
 startGame:false,
 guessNumber:10,
-chosenWord:'',
+chosenWord:"",
 }
-
 
 function startGame(){
-game.chosenWord=Math.floor(Math.random()*arrWords.length);
-Word.addLetters(guess.answer);
-
+game.startGame=true;
+game.chosenWord=Math.floor(Math.random()*game.arrWords.length);
+Word.underlyingWordArr.push(game.chosenWord);
+askUser();
 }
-
 
 function askUser(){
 inquirer.prompt({
@@ -22,10 +23,9 @@ name:'guess',
 message:'Guess a letter: ',
 type:'input',
 }).then(answer=>{
-
-Word.returnWord(chosenWord);
+Word.returnWord(answer.guess);
 game.guessNumber--;
 }
 )};
 
-askUser();
+startGame();
