@@ -17,4 +17,4 @@ This is a Word Guessing Game app which uses constructors for Letters and Words
 3. Counts wrong guesses and deducts points accordingly 
 
 ## Link to app <h2>
-* Click on the following link for a video of the typical user flow through this application:https://docs.google.com/document/d/1u-FdcaDL8xIC7nnwNUbEzGpw3B0Ipd_ZxvH9d3j9vNM/edit?usp=sharing
+* Click on the following link for a video of the typical user flow through this application: https://we.tl/t-V0Nfe8GMxQ
