@@ -3,11 +3,11 @@ This is a Word Guessing Game app which uses constructors for Letters and Words
 
 ## Letter Constructor Functions<h2>
 1. LetterCheck: Accepts an argument (user input) and compares it with an underlying character to set the value to _true_ or _false_ 
-2. LetterGuess: If the user input is the same as the underlying character, it returns the underlying character. Otherwise, it returns _"_"_ 
+2. LetterGuess: If the user input is the same as the underlying character, it returns the underlying character. Otherwise, it returns "_" 
 
 ## Word Constructor Functions<h2>
 1. MakeWord: Creates an _array of letter objects_ from a randomly selected word
-2. ReturnWord: Returns a string with _matching characters_ or _"_"_ according to users input
+2. ReturnWord: Returns a string with _matching characters_ or "_" according to users input
 3. AddLetter: Compares the array of letter objects with user input to determine which if there are matching letters
 4. Feedback: Provides feedback depending is the user guessed _correctly_ or _incorrectly_
 
