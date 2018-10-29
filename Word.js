@@ -1,27 +1,49 @@
 const Letter = require("./Letter.js");
+const chalk = require('chalk');
 
-function Word() {
-    //An array of new Letter objects representing the letters of the underlying word
-    this.underlyingWordArr = [];
-    //A function that returns a string representing the word. This should call the function on each letter object (the first function defined in Letter.js) that displays the character or an underscore and concatenate those together.
-    this.returnWord = () => {
-        console.log('test');
-        this.wordLetter = () => {
-            for (let i=0; i<this.underlyingWordArr.length; i++){
-            this.underlyingWordArr.push(new Letter[i]);
+function Word(chosenWord, feedbackCheck) {
+    this.chosenWord = chosenWord.split('');
+    this.letterObjs = [];
+    this.compWord = '';
+    this.feedbackCheck = feedbackCheck || false;
+
+    this.makeWord = () => {
+        for (var i = 0; i < this.chosenWord.length; i++) {
+            this.letterObjs.push(new Letter(this.chosenWord[i]));
         }
-        return this.underlyingWordArr.toString().join("");
-    }}
-
-    //A function that takes a character as an argument and calls the guess function on each letter object (the second function defined in Letter.js)
-    this.addLetters = () => {
-        this.underlyingWordArr.forEach((charUser) => {
-            Letter.letterCheck(call(this, charUser));
-        });
     }
-}
+
+    this.returnWord = () => {
+        var mainWord = [];
+        this.letterObjs.forEach(letter => {
+            mainWord.push(letter.letterGuess());
+            this.compWord = mainWord.join('');
+        });
+        return console.log(`${mainWord.join('')}\n`);
+    }
+
+    this.addLetters = (userChar) => {
+        for (let letter of this.letterObjs) {
+            if (letter.guessVerify === false) {
+                letter.letterCheck(userChar);
+            }
+        }
+        this.feedback(userChar);
+        this.returnWord();
+    }
+
+    this.feedback = (userChar) => {
+        this.feedbackCheck = false;
+        for (let letter of this.letterObjs) {
+            if (letter.charString === userChar) {
+                this.feedbackCheck = true;
+                return console.log(`${chalk.magenta.bold(`CORRECT LETTER!`)}`);
+            }
+        }
+        if (!this.feedbackCheck) {
+            console.log(`${chalk.blue.bold(`INCORRECT LETTER`)}`);
+        }
+    }
+};
 
 module.exports = Word;
-
-//var test=new Word();
-//test.returnWord();
